@@ -26,7 +26,7 @@ $
 
 
 
-      $ cd 2015/feb/                                                                                    
+$ cd 2015/feb/                                                                                    
 $ ls                                                                                              
 circuit-board.txt  input-output.txt  power-supply.txt                                             
 $ mkdir media                                                                                     
@@ -38,7 +38,7 @@ $
 
 
 
-                $ cd 2014/dec/                                                                                    
+$ cd 2014/dec/                                                                                    
 $ ls                                                                                              
 monitor.txt  mouse.txt                                                                            
 $ touch keyboard.txt                                                                              
@@ -49,7 +49,7 @@ $
 
 
 
-       $ ls                                                                                              
+$ ls                                                                                              
 action  comedy  drama  genres.txt                                                                 
 $ ls -a                                                                                           
 .  ..  .preferences  action  comedy  drama  genres.txt      
@@ -284,12 +284,401 @@ $ cat islands.txt
 
 
 
+$ cat islands.txt                                                                                 
+     17      26     204                                                                           
+$ cat lakes.txt                                                                                   
+Caspian Sea                                                                                       
+Lake Superior                                                                                     
+Lake Victoria                                                                                     
+Lake Michigan                                                                                     
+Lake Taganyika                                                                                    
+Lake Baikal                                                                                       
+Great Bear Lake                                                                                   
+Lake Malawi                                                                                       
+Lake Titicaca                                                                                     
+Lake Nicaragua                                                                                    
+                                                                                                  
+$ sort lakes.txt                                                                                  
+                                                                                                  
+Caspian Sea                                                                                       
+Great Bear Lake                                                                                   
+Lake Baikal                                                                                       
+Lake Malawi                                                                                       
+Lake Michigan                                                                                     
+Lake Nicaragua                                                                                    
+Lake Superior                                                                                     
+Lake Taganyika                                                                                    
+Lake Titicaca                                                                                     
+Lake Victoria                                                                                     
+$ cat lakes.txt | sort > sorted-lakes.txt                                                         
+$ cat sorted-lakes.txt                                                                            
+                                                                                                  
+Caspian Sea                                                                                       
+Great Bear Lake                                                                                   
+Lake Baikal                                                                                       
+Lake Malawi                                                                                       
+Lake Michigan                                                                                     
+Lake Nicaragua                                                                                    
+Lake Superior                                                                                     
+Lake Taganyika                                                                                    
+Lake Titicaca                                                                                     
+Lake Victoria    
 
 
+
+$ cat deserts.txt                                                                                 
+Arctic Desert                                                                                     
+Sahara Desert                                                                                     
+Sahara Desert                                                                                     
+Arabian Desert                                                                                    
+Gobi Desert                                                                                       
+Kalahari Desert                                                                                   
+Great Basic Desert                                                                                
+Syrian Desert                                                                                     
+Kalahari Desert                                                                                   
+                                                                                                  
+$ uniq deserts.txt                                                                                
+Arctic Desert                                                                                     
+Sahara Desert                                                                                     
+Arabian Desert                                                                                    
+Gobi Desert                                                                                       
+Kalahari Desert                                                                                   
+Great Basic Desert  
+Syrian Desert                                                                                     
+Kalahari Desert                                                                                   
+                                                                                                  
+$ uniq deserts.txt                                                                                
+Arctic Desert                                                                                     
+Sahara Desert                                                                                     
+Arabian Desert                                                                                    
+Gobi Desert                                                                                       
+Kalahari Desert                                                                                   
+Great Basic Desert                                                                                
+Syrian Desert                                                                                     
+Kalahari Desert                                                                                   
+                                                                                                  
+$ sort deserts.txt | uniq                                                                         
+                                                                                                  
+Arabian Desert                                                                                    
+Arctic Desert                                                                                     
+Gobi Desert                                                                                       
+Great Basic Desert                                                                                
+Kalahari Desert                                                                                   
+Sahara Desert                                                                                     
+Syrian Desert                                                                                     
+$ sort deserts.txt | uniq-deserts.txt                                                             
+bash: uniq-deserts.txt: command not found                                                         
+$ sort deserts.txt | uniq > uniq- deserts.txt                                                     
+$ sort deserts.txt | uniq > uniq-deserts.txt                                                      
+$ cat uniq-deserts.txt                                                                            
+                                                                                                  
+Arabian Desert                                                                                    
+Arctic Desert                                                                                     
+Gobi Desert                                                                                       
+Great Basic Desert                                                                                
+Kalahari Desert                                                                                   
+Sahara Desert                                                                                     
+Syrian Desert 
 
 
 
      
+$ cat mountains.txt                                                                               
+The Himalayas                                                                                     
+Hindu Kush Mountains                                                                              
+Henduan Mountains                                                                                 
+Tian Shan                                                                                         
+Nyenchen Tanglha                                                                                  
+Andes mountains                                                                                   
+Atlas Mountains                                                                                   
+Mount Kilimanjaro                                                                                 
+Scandinavian mountains                                                                            
+Appalachian mountains                                                                             
+Rocky mountains                                                                                   
+Sierra Nevada de Santa Marta                                                                      
+Transantarctic Mountains 
+
+$ grep Mount mountains.txt                                                                        
+Hindu Kush Mountains                                                                              
+Henduan Mountains                                                                                 
+Atlas Mountains                                                                                   
+Mount Kilimanjaro                                                                                 
+Transantarctic Mountains                                                                          
+$ grep -i Mount maintains.text                                                                    
+grep: maintains.text: No such file or directory                                                   
+$ grep -i Mount mountains.txt                                                                     
+Hindu Kush Mountains                                                                              
+Henduan Mountains                                                                                 
+Andes mountains                                                                                   
+Atlas Mountains                                                                                   
+Mount Kilimanjaro                                                                                 
+Scandinavian mountains                                                                            
+Appalachian mountains                                                                             
+Rocky mountains                                                                                   
+Transantarctic Mountains  
+
+
+
+
+$ grep -R Arctic /home/ccuser/workspace/geography                                                 
+/home/ccuser/workspace/geography/uniq-:Arctic Desert                                              
+/home/ccuser/workspace/geography/deserts.txt:Arctic Desert                                        
+/home/ccuser/workspace/geography/oceans.txt:Arctic Ocean                                          
+/home/ccuser/workspace/geography/uniq-deserts.txt:Arctic Desert                                   
+/home/ccuser/workspace/geography/continents.txt:Arctic Ocean                                      
+$ grep -Rl Arctic /home/ccuser/workspace/geography                                                
+/home/ccuser/workspace/geography/uniq-                                                            
+/home/ccuser/workspace/geography/deserts.txt                                                      
+/home/ccuser/workspace/geography/oceans.txt                                                       
+/home/ccuser/workspace/geography/uniq-deserts.txt                                                 
+/home/ccuser/workspace/geography/continents.txt                                                   
+$                                                                                                 
+       
+
+
+$ cat forests.txt                                                                                 
+The Amazon snowforest                                                                             
+The Congo snowforest                                                                              
+Valdivian Temperate snowforest                                                                    
+Daintree snowforest                                                                               
+Southeast Asian snowforest snowforest                                                             
+Tongrass National forest                                                                          
+Sinharaja Forest Reserve                                                                          
+Pacific Temperate snowforest snowforest 
+
+$ sed 's/snow/rain/' forests.txt                                                                  
+The Amazon rainforest                                                                             
+The Congo rainforest                                                                              
+Valdivian Temperate rainforest                                                                    
+Daintree rainforest                                                                               
+Southeast Asian rainforest snowforest                                                             
+Tongrass National forest                                                                          
+Sinharaja Forest Reserve                                                                          
+Pacific Temperate rainforest snowforest  
+
+$ sed 's/snow/rain/g' forests.txt                                                                 
+The Amazon rainforest                                                                             
+The Congo rainforest                                                                              
+Valdivian Temperate rainforest                                                                    
+Daintree rainforest                                                                               
+Southeast Asian rainforest rainforest                                                             
+Tongrass National forest                                                                          
+Sinharaja Forest Reserve                                                                          
+Pacific Temperate rainforest rainforest                                                           
+                                           
+
+
+  GNU nano 2.2.6                    File: hello.txt                                               
+                                                                                                  
+"Hello, I am nano."                                                                               
+                                                                                                  
+                                                                                                  
+                                                                                                  
+                                                                                                  
+                                                                                                  
+                                                                                                  
+                                                                                                  
+                                                                                                  
+                                                                                                  
+                                                                                                  
+                                                                                                  
+                                                                                                  
+                                                                                                  
+                                                                                                  
+                                                                                                  
+                                                                                                  
+                                                                                                  
+                                                                                                  
+                                                                                                  
+                                                                                                  
+                                                                                                  
+                                                                                                  
+                                                                                                  
+                                                                                                  
+                                                                                                  
+                                                                                                  
+                                                                                                  
+                                                                                                  
+                                                                                                  
+                                                                                                  
+                                        [ Wrote 2 lines ]                                         
+^G Get Help     ^O WriteOut     ^R Read File    ^Y Prev Page    ^K Cut Text     ^C Cur Pos        
+^X Exit         ^J Justify      ^W Where Is     ^V Next Page    ^U UnCut Text   ^T To Spell       
+Each time we launch the terminal application, it creates a new session. The session immediately loads settings and preferences that make up the command line environment.
+
+We can configure the environment to support the commands and programs we create. This enables us to customize greetings and command aliases, and create variables to share across commands and programs.
+
+You can reference the filesystem for this lesson here.
+1.
+We'll begin by learning to use a simple, command line text editor called nano.
+
+In the terminal, type
+
+nano hello.txt
+
+This will open the nano text editor.
+2.
+In nano, at the top of the window, type
+
+"Hello, I am nano."
+
+Using the menu at the bottom of the terminal for reference, type Ctrl + O (the letter, not the number) to save the file. This is the letter "O", not the number zero.
+
+Press Enter, when prompted about the filename to write.
+
+Then type Ctrl + X to exit nano.
+
+Finally, type clear to clear the terminal window. The command prompt should now be at the top of the window.
+Report a Bug
+If you see a bug, please report it using the form below.
+
+I don't understand this error message
+
+There's a problem with the interface
+
+There's something wrong with the instructions
+
+Other
+
+Please describe your problem.
+SUBMIT
+Report a Bug
+Learn
+Instructions
+Congratulations! You earned a new achievement:
+Lesson Completed: Redirection
+Learn the Command Line - Environment
+1
+Environment
+2
+nano
+3
+Bash Profile
+4
+Aliases I
+5
+Aliases II
+6
+Environment Variables
+7
+PS1
+8
+HOME
+9
+PATH
+10
+env
+11
+Generalizations
+View All Exercises
+Back
+74%
+Next
+Get Help
+
+
+
+
+$ source ~/.bash_profile                                                                          
+Welcome, Jane Doe                                                                                 
+Welcome, Molly                                                                                    
+$                                                                                                 
+                                                                                                  
+                                                                                                  
+        
+$ source ~/.bash_profile                                                                          
+Welcome, Jane Doe                                                                                 
+Welcome, Molly                                                                                    
+$ pd                                                                                              
+/home/ccuser/workspace/music                                                                      
+$ 
+
+
+
+$ source ~/.bash_profile                                                                          
+Welcome, Jane Doe                                                                                 
+Welcome, Molly                                                                                    
+$ hy                                                                                              
+    1  nano ~/.bash_profile                                                                       
+    2  clear                                                                                      
+    3  source ~/.bash_profile                                                                     
+    4  hy                                                                                         
+$ ll                                                                                              
+total 20                                                                                          
+drwxr-xr-x 3 ccuser ccuser 4096 Sep 15 14:36 .                                                    
+drwxr-xr-x 3 ccuser ccuser 4096 Sep 15 14:35 ..                                                   
+-rw-r--r-- 1 ccuser ccuser  175 Sep 15 14:40 .test.bats                                           
+drwxr-xr-x 2 ccuser ccuser 4096 Aug  1 15:03 artists                                              
+-rw-r--r-- 1 ccuser ccuser   21 Sep 15 14:36 hello.txt                                            
+$                                                                                                 
+     
+
+
+$ source ~/.bash_profile                                                                          
+Welcome, Jane Doe                                                                                 
+Welcome, Molly                                                                                    
+$ echo $USER                                                                                      
+Molly                                                                                             
+$   
+
+
+$ source ~/.bash_profile                                                                          
+Welcome, Jane Doe                                                                                 
+Welcome, Molly                                                                                    
+>> echo "hello"                                                                                   
+hello                                                                                             
+>> ls -alt                                                                                        
+total 20                                                                                          
+-rw-r--r-- 1 ccuser ccuser  362 Sep 15 14:43 .test.bats                                           
+drwxr-xr-x 3 ccuser ccuser 4096 Sep 15 14:36 .                                                    
+-rw-r--r-- 1 ccuser ccuser   21 Sep 15 14:36 hello.txt                                            
+drwxr-xr-x 3 ccuser ccuser 4096 Sep 15 14:35 ..                                                   
+drwxr-xr-x 2 ccuser ccuser 4096 Aug  1 15:03 artists                                              
+>>   
+
+
+$ echo $HOME                                                                                      
+/home/ccuser                                                                                      
+$      
+
+
+$ echo $PATH                                                                                      
+/home/ccuser/.gem/ruby/2.0.0/bin:/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/sbin:/sbin:/bin     
+$ /bin/pwd                                                                                        
+/home/ccuser/workspace/music                                                                      
+$ /bin/ls                                                                                         
+artists  hello.txt                                                                                
+$  
+
+
+
+$ env                                                                                             
+GEM_HOME=/home/ccuser/.gem/ruby/2.0.0                                                             
+TERM=linux                                                                                        
+LC_ALL=C.UTF-8                                                                                    
+PATH=/home/ccuser/.gem/ruby/2.0.0/bin:/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/sbin:/sbin:/bin
+PWD=/home/ccuser/workspace/music                                                                  
+LANG=C.UTF-8                                                                                      
+PS1=$                                                                                             
+HOME=/home/ccuser                                                                                 
+SHLVL=1                                                                                           
+UPSTART_INSTANCE=                                                                                 
+UPSTART_JOB=godex                                                                                 
+_=/usr/bin/env                                                                                    
+$ env | grep PATH                                                                                 
+PATH=/home/ccuser/.gem/ruby/2.0.0/bin:/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/sbin:/sbin:/bin
+$                                                                                                 
+     
+
+
+Now uploading to Github…
+
+
+
+
+
+
+
 
 
 
